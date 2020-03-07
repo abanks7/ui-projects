@@ -23,29 +23,21 @@ class TopMenu extends React.Component {
         onClick={this.props.handler}>
           <Icon name="sidebar" />
         </Menu.Item>
-        
-          
-
-          <Modal basic dimmer='inverted' centered={false} trigger={
+        <Modal basic dimmer='inverted' centered={false} trigger={
           <Menu.Item className="topmenuitem" as='a'>
           <Icon name="search" />
           </Menu.Item>
           } closeIcon>
-            <Modal.Content>
-              <Modal.Description>
-
-              <Container id="searchModalPop">
-                <Container id="searchForm">
-                <Input transparent fluid action={{ icon: 'search' }} placeholder='Search our store'/>
-                </Container>
+          <Modal.Content>
+            <Modal.Description>
+            <Container id="searchModalPop">
+              <Container id="searchForm">
+              <Input transparent fluid action={{ icon: 'search' }} placeholder='Search our store'/>
               </Container>
-
-              </Modal.Description>
-            </Modal.Content>
-          </Modal>
-
-
-        
+            </Container>
+            </Modal.Description>
+          </Modal.Content>
+        </Modal>
         <Dropdown item icon="cart" className="r-cart">
           <Dropdown.Menu>
             <Dropdown.Item>Your cart is currently empty.</Dropdown.Item>
@@ -72,7 +64,6 @@ class SidebarMenu extends React.Component {
 
   state = { visible: false }
 
-  // handleHideClick = () => this.setState({ visible: false })
   handleShowClick = () => this.setState({ visible: true })
   handleSidebarHide = () => this.setState({ visible: false })
 
@@ -86,12 +77,10 @@ class SidebarMenu extends React.Component {
           as={Menu}
           animation='push'
           direction='left'
-          // icon='labeled'
           inverted
           onHide={this.handleSidebarHide}
           vertical
           visible={visible}
-          // width='thin'
         >
           <Menu.Item as='a' onClick={this.handleSidebarHide}>
             <Icon name='close'/>
@@ -109,7 +98,6 @@ class SidebarMenu extends React.Component {
           <Menu.Item as='a' id='menuItemS'>Products</Menu.Item>
           <Menu.Item as='a' id='menuItemS'>Contact</Menu.Item>
         </Sidebar>
-
         <Sidebar.Pusher>
           <Segment basic>
             <TopMenu handler = {this.handler}/>
@@ -242,19 +230,5 @@ class FooterMenu extends React.Component {
     )
   }
 }
-
-// class SilentFlight extends React.Component {
-//   render() {
-//     return (
-//         <div>
-//           <TopMenu/>
-//           <Fade/>
-//           <MiddlePage/>
-//           <MainContent/>
-//           <FooterMenu/>
-//         </div>
-//     );
-//   }
-// }
 
 ReactDOM.render(<SidebarMenu/>, document.getElementById('root'));
